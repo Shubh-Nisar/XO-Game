@@ -1,7 +1,7 @@
 import pygame
 import time
 from pygame.locals import *
-import numpy as numpy
+#import numpy as numpy
 
 pygame.init()
 
@@ -39,6 +39,7 @@ pygame.display.set_caption('X & O')
 
 clock = pygame.time.Clock()
 
+# RESET THE GAME
 def game_reset():
     global XO, loc_list, loc_row, loc_colm, x_win, o_win, moves
     time.sleep(5)
@@ -51,6 +52,7 @@ def game_reset():
     o_win = int(o_win)
     game_loop()
 
+# DECLARE THE WINNER
 def winner(winner_player):
     global x_win, o_win
     font = pygame.font.SysFont(None, 30)
@@ -66,11 +68,13 @@ def winner(winner_player):
     pygame.display.update()
     game_reset()
 
+# PRINT X & O AT THE TOP
 def welcome():
     font = pygame.font.SysFont(None, 50)
     text = font.render("X & O", True, primary_color)
     gameDisplay.blit(text, (105,15))
 
+# UPDATE THE ENTRY FROM USER
 def Varimage(x,y):
     global XO, loc_list
     if XO == 'x':
@@ -81,6 +85,7 @@ def Varimage(x,y):
         XO = 'x'
     pygame.display.update()
 
+# CHECK FOR ANY VICTORY B/W X or O
 def check():
     global loc_list, winnerP, moves
     winnerP = None
@@ -114,6 +119,7 @@ def check():
     if winnerP is not None:
         winner(winnerP)
     moves += 1
+    # IN DRAW SCENARIO
     if moves == 9:
         winnerP = "No"
         winner(winnerP)
@@ -164,10 +170,12 @@ def userClick():
     loc_list[row-1][colm-1] = XO
     Varimage(varImageX,varImageY)  
     check()                    
-    
+
+# DISPLAY THE GAME-BOARD    
 def board():
     gameDisplay.blit(boxImg,(board_x,board_y))
 
+# THE ULTIMATE GAME LOOP
 def game_loop():
     gameExit = False
     gameDisplay.fill(background_color)   
