@@ -14,6 +14,8 @@
 ##### Draw Scenario
 ![draw](https://user-images.githubusercontent.com/65038837/86123505-3fe6cc00-baf7-11ea-8e0a-aabacd60df69.png)
 
+> The Game will pause and reset automatically after 5 seconds, when either 'X' or 'O' wins the game or after a draw scenario occurs. 
+
 
 
 
